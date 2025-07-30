@@ -1,0 +1,15 @@
+{
+  "id": "picaporte",
+  "name": "picaporte",
+  "display_name": "picaporte",
+  "author": ["La mama de waco"],
+  "description": "me follo a tu madre",
+  "prefix": "sj",
+  "prefixcomment":"ABOVE PREFIX IS ADDED TO E.G. LOCALIZATION!",
+  "main_file": "picaporte.lua",
+  "priority": 0,
+  "badge_colour": "ff00ff",
+  "badge_text_colour": "",
+  "version": "0.69",
+  "dependencies": ["Steamodded (>=1.0.0~BETA-0614a)"]
+}
