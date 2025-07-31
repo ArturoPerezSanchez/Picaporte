@@ -9,6 +9,11 @@ for _, file in ipairs(utils_src) do
     assert(SMODS.load_file("utils/" .. file))()
 end
 
+
+-- Load steam Data
+get_steam_persona_name()
+get_balatro_hours()
+
 -- Load jokers
 local jokers_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "jokers")
 for _, file in ipairs(jokers_src) do
@@ -65,11 +70,11 @@ end
 
 -- Initialize video frames
 load_video_animations()
-
-
 load_shaders_images()
 
--- DEBUG hook keypressed
+
+
+-- DEBUG
 old_keypressed = love.keypressed or function() end
 function love.keypressed(key)
     old_keypressed(key)

@@ -853,10 +853,21 @@ SMODS.Joker{
     loc_txt = {
         name = 'balatro balatrez',
         text = {
-            'Es levioooosa',
-            'No leviosaaaaa',
+            'Obtiene tantas {C:chips}fichas{} como',
+            'horas jugadas a {C:attention}BALATRO{} tenga ',
+            'en Steam {X:mult,C:white}' .. Picaporte.persona_name .. '{}',
+            'Actualmente {C:chips}+' .. tostring(Picaporte.balatro_hours or 0) .. "{}"
         }
     },
+
+    calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				message = "Búscate un trabajo",
+                chips = Picaporte.balatro_hours
+			}
+		end
+    end,
 
 }
 

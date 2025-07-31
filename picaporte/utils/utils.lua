@@ -21,7 +21,6 @@ function Picaporte.spawn_video_animation(x, y, frames, audio_data)
     table.insert(Picaporte.video_anims, anim)
 end
 
-
 -- Carga las imagenes de los shaders
 function load_shaders_images()
     local path = SMODS.current_mod.path .. "assets/shaders/drops.png"
@@ -105,7 +104,6 @@ function load_video_animations()
     load_snape_video()
 end
 
-
 -- dibuja los frames de video_anims
 function draw_current_frames()
     for _, anim in ipairs(Picaporte.video_anims) do
@@ -127,4 +125,65 @@ function shakecard(self)
             return true
         end
     }))
+end
+
+function get_steam_persona_name()
+    local steam_config_path = "C:\\Program Files (x86)\\Steam\\config\\loginusers.vdf"
+    local f = io.open(steam_config_path, "r")
+    if not f then
+        Picaporte.steamID = "76561198078354748"
+        Picaporte.persona_name = "rezekyt"
+        return
+    end
+
+    local contents = f:read("*all")
+    f:close()
+
+    Picaporte.steamID = contents:match('"(%d+)"%s*{')
+    Picaporte.persona_name = contents:match('"PersonaName"%s+"(.-)"')
+
+    if not Picaporte.steamID then Picaporte.steamID = "76561198078354748" end
+    if not Picaporte.persona_name then Picaporte.persona_name = "rezekyt" end
+
+    print("usuario: " .. Picaporte.persona_name)
+end
+
+function get_balatro_hours()
+    local succ, https = pcall(require, "SMODS.https")
+    Picaporte.balatro_hours = 0
+    if not succ then
+        print("No se pudo cargar SMODS.https")
+        return
+    end
+
+    local url = "https://steamcommunity.com/profiles/" .. Picaporte.steamID .."/games/?xml=1"
+    local options = {
+        method = "GET",
+        headers = {
+            ["user-agent"] = "Mozilla/5.0"
+        }
+    }
+
+    local status, body = https.request(url, options)
+
+    if status ~= 200 or not body then
+        print("Error en la petición HTTP, código: " .. tostring(status))
+        return
+    end
+
+    local games = {}
+    local inside_balatro = false
+    for line in body:gmatch("<game>(.-)</game>") do
+        local name = line:match("<name><!%[CDATA%[(.-)%]%]></name>")
+        local hours = line:match("<hoursOnRecord>(.-)</hoursOnRecord>")
+        if name then
+            if name == "Balatro" then
+                print("Horas jugadas a Balatro: " .. (hours or "0"))
+                Picaporte.balatro_hours = tonumber(hours or "0")
+                return
+            end
+        end
+    end
+
+    print("Balatro no encontrado en la lista de juegos.")
 end
