@@ -1,491 +1,3 @@
--- function return_JokerValues() -- not used, just here to demonstrate how you could return values from a joker
---     if context.joker_main and context.cardarea == G.jokers then
---         return {
---             chips = card.ability.extra.chips,       -- these are the 3 possible scoring effects any joker can return.
---             mult = card.ability.extra.mult,         -- adds mult (+)
---             x_mult = card.ability.extra.x_mult,     -- multiplies existing mult (*)
---             card = self,                            -- under which card to show the message
---             colour = G.C.CHIPS,                     -- colour of the message, Balatro has some predefined colours, (Balatro/globals.lua)
---             message = localize('k_upgrade_ex'),     -- this is the message that will be shown under the card when it triggers.
---             extra = { focus = self, message = localize('k_upgrade_ex') }, -- another way to show messages, not sure what's the difference.
---         }
---     end
--- end
-
-SMODS.Atlas({
-    key = "sample_wee",
-    path = "j_sample_wee.png",
-    px = 71,
-    py = 95
-})
-
-SMODS.Atlas({
-    key = "sample_obelisk",
-    path = "j_sample_obelisk.png",
-    px = 71,
-    py = 95
-})
-
-SMODS.Atlas({
-    key = "sample_specifichand",
-    path = "j_sample_specifichand.png",
-    px = 71,
-    py = 95
-})
-
-SMODS.Atlas({
-    key = "sample_money",
-    path = "j_sample_money.png",
-    px = 71,
-    py = 95
-})
-
-SMODS.Atlas({
-    key = "sample_roomba",
-    path = "j_sample_roomba.png",
-    px = 71,
-    py = 95
-})
-
-SMODS.Atlas({
-    key = "sample_drunk_juggler",
-    path = "j_sample_drunk_juggler.png",
-    px = 71,
-    py = 95
-})
-
-SMODS.Atlas({
-    key = "sample_hackerman",
-    path = "j_sample_hackerman.png",
-    px = 71,
-    py = 95
-})
-
-SMODS.Atlas({
-    key = "sample_baroness",
-    path = "j_sample_baroness.png",
-    px = 71,
-    py = 95
-})
-
-SMODS.Atlas({
-    key = "sample_rarebaseballcard",
-    path = "j_sample_rarebaseballcard.png",
-    px = 71,
-    py = 95
-})
-
-SMODS.Atlas({
-    key = "sample_multieffect",
-    path = "j_sample_multieffect.png",
-    px = 71,
-    py = 95
-})
-
-SMODS.Atlas({
-    key = "abascal",
-    path = "abascal.png",
-    px = 71,
-    py = 95
-})
-
-SMODS.Atlas({
-    key = "carbono",
-    path = "carbono.png",
-    px = 71,
-    py = 95
-})
-
-SMODS.Atlas({
-    key = "lgtb",
-    path = "lgtb.png",
-    px = 71,
-    py = 95
-})
-
-SMODS.Atlas({
-    key = "pota",
-    path = "pota.png",
-    px = 71,
-    py = 95
-})
-
-SMODS.Atlas({
-    key = "julio",
-    path = "julio.png",
-    px = 71,
-    py = 95
-})
-
-SMODS.Atlas({
-    key = "culo_de_arena",
-    path = "arena.png",
-    px = 71,
-    py = 95
-})
-
-SMODS.Atlas({
-    key = "2_fast_2_furious",
-    path = "2_fast_2_furious.png",
-    px = 71,
-    py = 95
-})
-
-
-SMODS.Atlas({
-    key = "balatro_balatrez",
-    path = "balatro_balatrez.png",
-    px = 71,
-    py = 95
-})
-
-
-SMODS.Atlas({
-    key = "beti",
-    path = "beti.png",
-    px = 71,
-    py = 95
-})
-
-
-
-SMODS.Atlas({
-    key = "burn",
-    path = "burn.png",
-    px = 71,
-    py = 95
-})
-
-
-
-SMODS.Atlas({
-    key = "cruzcampo",
-    path = "cruzcampo.png",
-    px = 71,
-    py = 95
-})
-
-
-
-SMODS.Atlas({
-    key = "gaviota",
-    path = "gaviota.png",
-    px = 71,
-    py = 95
-})
-
-
-
-SMODS.Atlas({
-    key = "greta",
-    path = "greta.png",
-    px = 71,
-    py = 95
-})
-
-
-
-SMODS.Atlas({
-    key = "monster",
-    path = "monster.png",
-    px = 71,
-    py = 95
-})
-
-
-SMODS.Atlas({
-    key = "monster_white",
-    path = "monster_white.png",
-    px = 71,
-    py = 95
-})
-
-
-SMODS.Atlas({
-    key = "obama",
-    path = "obama.png",
-    px = 71,
-    py = 95
-})
-
-
-SMODS.Atlas({
-    key = "paul_walker",
-    path = "paul_walker.png",
-    px = 71,
-    py = 95
-})
-
-
-SMODS.Atlas({
-    key = "perro_sanxe",
-    path = "perro_sanxe.png",
-    px = 71,
-    py = 95
-})
-
-
-SMODS.Atlas({
-    key = "renfe",
-    path = "renfe.png",
-    px = 71,
-    py = 95
-})
-
-
-SMODS.Atlas({
-    key = "sanic",
-    path = "sanic.png",
-    px = 71,
-    py = 95
-})
-
-
-SMODS.Joker{
-    key = "abascal",                                     --name used by the joker.    
-    config = { extra = { chips = 8, chip_mod = 2 } },    --variables used for abilities and effects.
-    pos = { x = 0, y = 0 },                              --pos in spritesheet 0,0 for single sprites or the first sprite in the spritesheet.
-    rarity = 1,                                          --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
-    cost = 2,                                            --cost to buy the joker in shops.
-    blueprint_compat=false,                              --does joker work with blueprint.
-    eternal_compat=true,                                 --can joker be eternal.
-    unlocked = true,                                     --is joker unlocked by default.
-    discovered = true,                                   --is joker discovered by default.    
-    effect=nil,                                          --you can specify an effect here eg. 'Mult'
-    soul_pos=nil,                                        --pos of a soul sprite.
-    atlas = 'abascal',                                      --atlas name, single sprites are deprecated.
-
-    calculate = function(self,card,context)              --define calculate functions here
-        if context.individual and context.cardarea == G.play then -- if we are in card scoring phase, and we are on individual cards
-            if not context.blueprint then -- blueprint/brainstorm don't get to add chips to themselves
-                if context.other_card:get_id() == 2 then -- played card is a 2 by rank
-                    card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chip_mod -- add configurable amount of chips to joker
-                    
-                    return {                             -- shows a message under the specified card (card) when it triggers, k_upgrade_ex is a key in the localization files of Balatro
-                        extra = {focus = card, message = localize('k_upgrade_ex')},
-                        card = card,
-                        colour = G.C.CHIPS
-                    }
-                end
-            end
-        end
-        if context.joker_main and context.cardarea == G.jokers then
-            return {                                     -- returns total chips from joker to be used in scoring, no need to show message in joker_main phase, game does it for us.
-                chips = card.ability.extra.chips, 
-                colour = G.C.CHIPS
-            }
-        end
-    end,
-
-    loc_vars = function(self, info_queue, card)          --defines variables to use in the UI. you can use #1# for example to show the chips variable
-        return { vars = { card.ability.extra.chips, card.ability.extra.chip_mod }, key = self.key }
-    end
-}
-
-SMODS.Joker{
-    key = "julio",                                        --name used by the joker.    
-    config = { extra = { chips = 8, chip_mod = 2 } },    --variables used for abilities and effects.
-    pos = { x = 0, y = 0 },                              --pos in spritesheet 0,0 for single sprites or the first sprite in the spritesheet.
-    rarity = 1,                                          --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
-    cost = 2,                                            --cost to buy the joker in shops.
-    blueprint_compat=false,                               --does joker work with blueprint.
-    eternal_compat=true,                                 --can joker be eternal.
-    unlocked = true,                                     --is joker unlocked by default.
-    discovered = true,                                   --is joker discovered by default.    
-    effect=nil,                                          --you can specify an effect here eg. 'Mult'
-    soul_pos=nil,                                        --pos of a soul sprite.
-    atlas = 'julio',                                      --atlas name, single sprites are deprecated.
-
-    calculate = function(self,card,context)              --define calculate functions here
-
-        if context.individual and context.cardarea == G.play then -- if we are in card scoring phase, and we are on individual cards
-            if not context.blueprint then -- blueprint/brainstorm don't get to add chips to themselves
-                love.window.minimize()
-
-                local url = "https://www.sepe.es"
-                if love.system.openURL then
-                    love.system.openURL(url)
-                else
-                    os.execute("start " .. url) 
-
-                end
-
-
-                if context.other_card:get_id() == 2 then -- played card is a 2 by rank
-                    card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chip_mod -- add configurable amount of chips to joker
-                    return {                             -- shows a message under the specified card (card) when it triggers, k_upgrade_ex is a key in the localization files of Balatro
-                        extra = {focus = card, message = localize('k_upgrade_ex')},
-                        card = card,
-                        colour = G.C.CHIPS
-                    }
-                end
-            end
-        end
-        if context.joker_main and context.cardarea == G.jokers then
-            return {                                     -- returns total chips from joker to be used in scoring, no need to show message in joker_main phase, game does it for us.
-                chips = card.ability.extra.chips, 
-                colour = G.C.CHIPS
-            }
-        end
-    end,
-
-    loc_vars = function(self, info_queue, card)          --defines variables to use in the UI. you can use #1# for example to show the chips variable
-        return { vars = { card.ability.extra.chips, card.ability.extra.chip_mod }, key = self.key }
-    end
-}
-
-SMODS.Joker{
-    key = "pota",                                        --name used by the joker.    
-    config = { extra = { chips = 8, chip_mod = 2 } },    --variables used for abilities and effects.
-    pos = { x = 0, y = 0 },                              --pos in spritesheet 0,0 for single sprites or the first sprite in the spritesheet.
-    rarity = 1,                                          --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
-    cost = 2,                                            --cost to buy the joker in shops.
-    blueprint_compat=false,                               --does joker work with blueprint.
-    eternal_compat=true,                                 --can joker be eternal.
-    unlocked = true,                                     --is joker unlocked by default.
-    discovered = true,                                   --is joker discovered by default.    
-    effect=nil,                                          --you can specify an effect here eg. 'Mult'
-    soul_pos=nil,                                        --pos of a soul sprite.
-    atlas = 'pota',                                      --atlas name, single sprites are deprecated.
-
-    calculate = function(self,card,context)              --define calculate functions here
-        if context.individual and context.cardarea == G.play then -- if we are in card scoring phase, and we are on individual cards
-            if not context.blueprint then -- blueprint/brainstorm don't get to add chips to themselves
-                if context.other_card:get_id() == 2 then -- played card is a 2 by rank
-                    card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chip_mod -- add configurable amount of chips to joker
-                    
-                    return {                             -- shows a message under the specified card (card) when it triggers, k_upgrade_ex is a key in the localization files of Balatro
-                        extra = {focus = card, message = localize('k_upgrade_ex')},
-                        card = card,
-                        colour = G.C.CHIPS
-                    }
-                end
-            end
-        end
-        if context.joker_main and context.cardarea == G.jokers then
-            return {                                     -- returns total chips from joker to be used in scoring, no need to show message in joker_main phase, game does it for us.
-                chips = card.ability.extra.chips, 
-                colour = G.C.CHIPS
-            }
-        end
-    end,
-
-    loc_vars = function(self, info_queue, card)          --defines variables to use in the UI. you can use #1# for example to show the chips variable
-        return { vars = { card.ability.extra.chips, card.ability.extra.chip_mod }, key = self.key }
-    end
-}
-
-SMODS.Joker{
-    key = "lgtb",                                        --name used by the joker.    
-    config = { name = "lgtb", poly_tally = 0 },    --variables used for abilities and effects.
-    pos = { x = 0, y = 0 },                              --pos in spritesheet 0,0 for single sprites or the first sprite in the spritesheet.
-    rarity = 1,                                          --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
-    cost = 2,                                            --cost to buy the joker in shops.
-    blueprint_compat=false,                               --does joker work with blueprint.
-    eternal_compat=true,                                 --can joker be eternal.
-    unlocked = true,                                     --is joker unlocked by default.
-    discovered = true,                                   --is joker discovered by default.    
-    effect=nil,                                          --you can specify an effect here eg. 'Mult'
-    soul_pos=nil,                                        --pos of a soul sprite.
-    atlas = 'lgtb',                                      --atlas name, single sprites are deprecated.
-
-
-    calculate = function(self, card, context)
-		if context.joker_main and card.ability.poly_tally > 0 then
-			return {
-				message = "Debí suponerlo",
-				x_mult = 1.5*card.ability.poly_tally
-			}
-		end
-    end,
-
-
-    loc_vars = function(self, info_queue, card)          --defines variables to use in the UI. you can use #1# for example to show the chips variable
-        return { vars = { 1 + 1.5*card.ability.poly_tally }, key = self.key }
-    end
-}
-
-SMODS.Joker{
-    key = "carbono",                                        --name used by the joker.    
-    config = { extra = { chips = 8, chip_mod = 2 } },    --variables used for abilities and effects.
-    pos = { x = 0, y = 0 },                              --pos in spritesheet 0,0 for single sprites or the first sprite in the spritesheet.
-    rarity = 1,                                          --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
-    cost = 2,                                            --cost to buy the joker in shops.
-    blueprint_compat=false,                               --does joker work with blueprint.
-    eternal_compat=true,                                 --can joker be eternal.
-    unlocked = true,                                     --is joker unlocked by default.
-    discovered = true,                                   --is joker discovered by default.    
-    effect=nil,                                          --you can specify an effect here eg. 'Mult'
-    soul_pos=nil,                                        --pos of a soul sprite.
-    atlas = 'carbono',                                      --atlas name, single sprites are deprecated.
-
-    calculate = function(self,card,context)              --define calculate functions here
-        if context.individual and context.cardarea == G.play then -- if we are in card scoring phase, and we are on individual cards
-            if not context.blueprint then -- blueprint/brainstorm don't get to add chips to themselves
-                if context.other_card:get_id() == 2 then -- played card is a 2 by rank
-                    card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chip_mod -- add configurable amount of chips to joker
-                    
-                    return {                             -- shows a message under the specified card (card) when it triggers, k_upgrade_ex is a key in the localization files of Balatro
-                        extra = {focus = card, message = localize('k_upgrade_ex')},
-                        card = card,
-                        colour = G.C.CHIPS
-                    }
-                end
-            end
-        end
-        if context.joker_main and context.cardarea == G.jokers then
-            return {                                     -- returns total chips from joker to be used in scoring, no need to show message in joker_main phase, game does it for us.
-                chips = card.ability.extra.chips, 
-                colour = G.C.CHIPS
-            }
-        end
-    end,
-
-    loc_vars = function(self, info_queue, card)          --defines variables to use in the UI. you can use #1# for example to show the chips variable
-        return { vars = { card.ability.extra.chips, card.ability.extra.chip_mod }, key = self.key }
-    end
-}
-
-SMODS.Joker{
-    key = "culo_de_arena",                               --name used by the joker.    
-    config = { extra = { chips = 8, chip_mod = 2 } },    --variables used for abilities and effects.
-    pos = { x = 0, y = 0 },                              --pos in spritesheet 0,0 for single sprites or the first sprite in the spritesheet.
-    rarity = 4,                                          --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
-    cost = 4,                                            --cost to buy the joker in shops.
-    blueprint_compat=false,                               --does joker work with blueprint.
-    eternal_compat=true,                                 --can joker be eternal.
-    unlocked = true,                                     --is joker unlocked by default.
-    discovered = true,                                   --is joker discovered by default.    
-    effect=nil,                                          --you can specify an effect here eg. 'Mult'
-    soul_pos=nil,                                        --pos of a soul sprite.
-    atlas = 'culo_de_arena',                             --atlas name, single sprites are deprecated.
-
-    calculate = function(self,card,context)              --define calculate functions here
-        if context.individual and context.cardarea == G.play then -- if we are in card scoring phase, and we are on individual cards
-            if not context.blueprint then -- blueprint/brainstorm don't get to add chips to themselves
-                if context.other_card:get_id() == 2 then -- played card is a 2 by rank
-                    card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chip_mod -- add configurable amount of chips to joker
-                    
-                    return {                             -- shows a message under the specified card (card) when it triggers, k_upgrade_ex is a key in the localization files of Balatro
-                        extra = {focus = card, message = localize('k_upgrade_ex')},
-                        card = card,
-                        colour = G.C.CHIPS
-                    }
-                end
-            end
-        end
-        if context.joker_main and context.cardarea == G.jokers then
-            return {                                     -- returns total chips from joker to be used in scoring, no need to show message in joker_main phase, game does it for us.
-                chips = card.ability.extra.chips, 
-                colour = G.C.CHIPS
-            }
-        end
-    end,
-
-    loc_vars = function(self, info_queue, card)          --defines variables to use in the UI. you can use #1# for example to show the chips variable
-        return { vars = { card.ability.extra.chips, card.ability.extra.chip_mod }, key = self.key }
-    end
-}
 
 SMODS.Joker{
     key = "sample_wee",                                  --name used by the joker.    
@@ -810,6 +322,253 @@ SMODS.Joker{
 
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.chips, card.ability.extra.mult }, key = self.key }
+    end
+}
+
+
+SMODS.Joker{
+    key = "abascal",                                     --name used by the joker.    
+    config = { extra = { chips = 8, chip_mod = 2 } },    --variables used for abilities and effects.
+    pos = { x = 0, y = 0 },                              --pos in spritesheet 0,0 for single sprites or the first sprite in the spritesheet.
+    rarity = 1,                                          --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
+    cost = 2,                                            --cost to buy the joker in shops.
+    blueprint_compat=false,                              --does joker work with blueprint.
+    eternal_compat=true,                                 --can joker be eternal.
+    unlocked = true,                                     --is joker unlocked by default.
+    discovered = true,                                   --is joker discovered by default.    
+    effect=nil,                                          --you can specify an effect here eg. 'Mult'
+    soul_pos=nil,                                        --pos of a soul sprite.
+    atlas = 'abascal',                                      --atlas name, single sprites are deprecated.
+
+    calculate = function(self,card,context)              --define calculate functions here
+        if context.individual and context.cardarea == G.play then -- if we are in card scoring phase, and we are on individual cards
+            if not context.blueprint then -- blueprint/brainstorm don't get to add chips to themselves
+                if context.other_card:get_id() == 2 then -- played card is a 2 by rank
+                    card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chip_mod -- add configurable amount of chips to joker
+                    
+                    return {                             -- shows a message under the specified card (card) when it triggers, k_upgrade_ex is a key in the localization files of Balatro
+                        extra = {focus = card, message = localize('k_upgrade_ex')},
+                        card = card,
+                        colour = G.C.CHIPS
+                    }
+                end
+            end
+        end
+        if context.joker_main and context.cardarea == G.jokers then
+            return {                                     -- returns total chips from joker to be used in scoring, no need to show message in joker_main phase, game does it for us.
+                chips = card.ability.extra.chips, 
+                colour = G.C.CHIPS
+            }
+        end
+    end,
+
+    loc_vars = function(self, info_queue, card)          --defines variables to use in the UI. you can use #1# for example to show the chips variable
+        return { vars = { card.ability.extra.chips, card.ability.extra.chip_mod }, key = self.key }
+    end
+}
+
+SMODS.Joker{
+    key = "julio",                                        --name used by the joker.    
+    config = { extra = { chips = 8, chip_mod = 2 } },    --variables used for abilities and effects.
+    pos = { x = 0, y = 0 },                              --pos in spritesheet 0,0 for single sprites or the first sprite in the spritesheet.
+    rarity = 1,                                          --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
+    cost = 2,                                            --cost to buy the joker in shops.
+    blueprint_compat=false,                               --does joker work with blueprint.
+    eternal_compat=true,                                 --can joker be eternal.
+    unlocked = true,                                     --is joker unlocked by default.
+    discovered = true,                                   --is joker discovered by default.    
+    effect=nil,                                          --you can specify an effect here eg. 'Mult'
+    soul_pos=nil,                                        --pos of a soul sprite.
+    atlas = 'julio',                                      --atlas name, single sprites are deprecated.
+
+    calculate = function(self,card,context)              --define calculate functions here
+
+        if context.individual and context.cardarea == G.play then -- if we are in card scoring phase, and we are on individual cards
+            if not context.blueprint then -- blueprint/brainstorm don't get to add chips to themselves
+                love.window.minimize()
+
+                local url = "https://www.sepe.es"
+                if love.system.openURL then
+                    love.system.openURL(url)
+                else
+                    os.execute("start " .. url) 
+
+                end
+
+
+                if context.other_card:get_id() == 2 then -- played card is a 2 by rank
+                    card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chip_mod -- add configurable amount of chips to joker
+                    return {                             -- shows a message under the specified card (card) when it triggers, k_upgrade_ex is a key in the localization files of Balatro
+                        extra = {focus = card, message = localize('k_upgrade_ex')},
+                        card = card,
+                        colour = G.C.CHIPS
+                    }
+                end
+            end
+        end
+        if context.joker_main and context.cardarea == G.jokers then
+            return {                                     -- returns total chips from joker to be used in scoring, no need to show message in joker_main phase, game does it for us.
+                chips = card.ability.extra.chips, 
+                colour = G.C.CHIPS
+            }
+        end
+    end,
+
+    loc_vars = function(self, info_queue, card)          --defines variables to use in the UI. you can use #1# for example to show the chips variable
+        return { vars = { card.ability.extra.chips, card.ability.extra.chip_mod }, key = self.key }
+    end
+}
+
+SMODS.Joker{
+    key = "pota",                                        --name used by the joker.    
+    config = { extra = { chips = 8, chip_mod = 2 } },    --variables used for abilities and effects.
+    pos = { x = 0, y = 0 },                              --pos in spritesheet 0,0 for single sprites or the first sprite in the spritesheet.
+    rarity = 1,                                          --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
+    cost = 2,                                            --cost to buy the joker in shops.
+    blueprint_compat=false,                               --does joker work with blueprint.
+    eternal_compat=true,                                 --can joker be eternal.
+    unlocked = true,                                     --is joker unlocked by default.
+    discovered = true,                                   --is joker discovered by default.    
+    effect=nil,                                          --you can specify an effect here eg. 'Mult'
+    soul_pos=nil,                                        --pos of a soul sprite.
+    atlas = 'pota',                                      --atlas name, single sprites are deprecated.
+
+    calculate = function(self,card,context)              --define calculate functions here
+        if context.individual and context.cardarea == G.play then -- if we are in card scoring phase, and we are on individual cards
+            if not context.blueprint then -- blueprint/brainstorm don't get to add chips to themselves
+                if context.other_card:get_id() == 2 then -- played card is a 2 by rank
+                    card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chip_mod -- add configurable amount of chips to joker
+                    
+                    return {                             -- shows a message under the specified card (card) when it triggers, k_upgrade_ex is a key in the localization files of Balatro
+                        extra = {focus = card, message = localize('k_upgrade_ex')},
+                        card = card,
+                        colour = G.C.CHIPS
+                    }
+                end
+            end
+        end
+        if context.joker_main and context.cardarea == G.jokers then
+            return {                                     -- returns total chips from joker to be used in scoring, no need to show message in joker_main phase, game does it for us.
+                chips = card.ability.extra.chips, 
+                colour = G.C.CHIPS
+            }
+        end
+    end,
+
+    loc_vars = function(self, info_queue, card)          --defines variables to use in the UI. you can use #1# for example to show the chips variable
+        return { vars = { card.ability.extra.chips, card.ability.extra.chip_mod }, key = self.key }
+    end
+}
+
+SMODS.Joker{
+    key = "lgtb",                                        --name used by the joker.    
+    config = { name = "lgtb", poly_tally = 0 },    --variables used for abilities and effects.
+    pos = { x = 0, y = 0 },                              --pos in spritesheet 0,0 for single sprites or the first sprite in the spritesheet.
+    rarity = 1,                                          --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
+    cost = 2,                                            --cost to buy the joker in shops.
+    blueprint_compat=false,                               --does joker work with blueprint.
+    eternal_compat=true,                                 --can joker be eternal.
+    unlocked = true,                                     --is joker unlocked by default.
+    discovered = true,                                   --is joker discovered by default.    
+    effect=nil,                                          --you can specify an effect here eg. 'Mult'
+    soul_pos=nil,                                        --pos of a soul sprite.
+    atlas = 'lgtb',                                      --atlas name, single sprites are deprecated.
+
+
+    calculate = function(self, card, context)
+		if context.joker_main and card.ability.poly_tally > 0 then
+			return {
+				message = "Debí suponerlo",
+				x_mult = 1.5*card.ability.poly_tally
+			}
+		end
+    end,
+
+
+    loc_vars = function(self, info_queue, card)          --defines variables to use in the UI. you can use #1# for example to show the chips variable
+        return { vars = { 1 + 1.5*card.ability.poly_tally }, key = self.key }
+    end
+}
+
+SMODS.Joker{
+    key = "carbono",                                        --name used by the joker.    
+    config = { extra = { chips = 8, chip_mod = 2 } },    --variables used for abilities and effects.
+    pos = { x = 0, y = 0 },                              --pos in spritesheet 0,0 for single sprites or the first sprite in the spritesheet.
+    rarity = 1,                                          --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
+    cost = 2,                                            --cost to buy the joker in shops.
+    blueprint_compat=false,                               --does joker work with blueprint.
+    eternal_compat=true,                                 --can joker be eternal.
+    unlocked = true,                                     --is joker unlocked by default.
+    discovered = true,                                   --is joker discovered by default.    
+    effect=nil,                                          --you can specify an effect here eg. 'Mult'
+    soul_pos=nil,                                        --pos of a soul sprite.
+    atlas = 'carbono',                                      --atlas name, single sprites are deprecated.
+
+    calculate = function(self,card,context)              --define calculate functions here
+        if context.individual and context.cardarea == G.play then -- if we are in card scoring phase, and we are on individual cards
+            if not context.blueprint then -- blueprint/brainstorm don't get to add chips to themselves
+                if context.other_card:get_id() == 2 then -- played card is a 2 by rank
+                    card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chip_mod -- add configurable amount of chips to joker
+                    
+                    return {                             -- shows a message under the specified card (card) when it triggers, k_upgrade_ex is a key in the localization files of Balatro
+                        extra = {focus = card, message = localize('k_upgrade_ex')},
+                        card = card,
+                        colour = G.C.CHIPS
+                    }
+                end
+            end
+        end
+        if context.joker_main and context.cardarea == G.jokers then
+            return {                                     -- returns total chips from joker to be used in scoring, no need to show message in joker_main phase, game does it for us.
+                chips = card.ability.extra.chips, 
+                colour = G.C.CHIPS
+            }
+        end
+    end,
+
+    loc_vars = function(self, info_queue, card)          --defines variables to use in the UI. you can use #1# for example to show the chips variable
+        return { vars = { card.ability.extra.chips, card.ability.extra.chip_mod }, key = self.key }
+    end
+}
+
+SMODS.Joker{
+    key = "culo_de_arena",                               --name used by the joker.    
+    config = { extra = { chips = 8, chip_mod = 2 } },    --variables used for abilities and effects.
+    pos = { x = 0, y = 0 },                              --pos in spritesheet 0,0 for single sprites or the first sprite in the spritesheet.
+    rarity = 4,                                          --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
+    cost = 4,                                            --cost to buy the joker in shops.
+    blueprint_compat=false,                               --does joker work with blueprint.
+    eternal_compat=true,                                 --can joker be eternal.
+    unlocked = true,                                     --is joker unlocked by default.
+    discovered = true,                                   --is joker discovered by default.    
+    effect=nil,                                          --you can specify an effect here eg. 'Mult'
+    soul_pos=nil,                                        --pos of a soul sprite.
+    atlas = 'culo_de_arena',                             --atlas name, single sprites are deprecated.
+
+    calculate = function(self,card,context)              --define calculate functions here
+        if context.individual and context.cardarea == G.play then -- if we are in card scoring phase, and we are on individual cards
+            if not context.blueprint then -- blueprint/brainstorm don't get to add chips to themselves
+                if context.other_card:get_id() == 2 then -- played card is a 2 by rank
+                    card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chip_mod -- add configurable amount of chips to joker
+                    
+                    return {                             -- shows a message under the specified card (card) when it triggers, k_upgrade_ex is a key in the localization files of Balatro
+                        extra = {focus = card, message = localize('k_upgrade_ex')},
+                        card = card,
+                        colour = G.C.CHIPS
+                    }
+                end
+            end
+        end
+        if context.joker_main and context.cardarea == G.jokers then
+            return {                                     -- returns total chips from joker to be used in scoring, no need to show message in joker_main phase, game does it for us.
+                chips = card.ability.extra.chips, 
+                colour = G.C.CHIPS
+            }
+        end
+    end,
+
+    loc_vars = function(self, info_queue, card)          --defines variables to use in the UI. you can use #1# for example to show the chips variable
+        return { vars = { card.ability.extra.chips, card.ability.extra.chip_mod }, key = self.key }
     end
 }
 
@@ -1255,248 +1014,3 @@ SMODS.Joker{
     },
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-SMODS.Sound({key = "whatsapp", path = "whatsapp.ogg",})
-
-SMODS.Atlas {
-    key = "sepe",
-    path = "sepe.png",
-    px = 71,
-    py = 96
-}
-
-SMODS.Seal {
-    name = "sepe",
-    key = "sepe",
-    badge_colour = HEX("00FF00"),
-	config = { mult = 1, chips = 10, money = 1, x_mult = 1.1, job = 1  },
-    loc_txt = {
-        -- Badge name (displayed on card description when seal is applied)
-        label = 'Sepe sello',
-        -- Tooltip description
-        name = 'Sepe sello',
-        text = {
-            '{C:mult}+#1#{} Mult',
-            '{C:chips}+#2#{} Chips',
-            '{C:money}+$#3#{}',
-            '{X:mult,C:white}X#4#{} Mult',
-            '{X:mult,C:white}X#5#{} Job',
-        }
-    },
-
-
-    sound = { sound = 'yahimod_whatsapp', per = 1, vol = 0.4 },
-
-    loc_vars = function(self, info_queue)
-        return { vars = {self.config.mult, self.config.chips, self.config.money, self.config.x_mult, self.config.job, } }
-    end,
-    atlas = "sepe",
-    pos = {x=0, y=0},
-
-    -- self - this seal prototype
-    -- card - card this seal is applied to
-    calculate = function(self, card, context)
-        -- main_scoring context is used whenever the card is scored
-        
-        local _whatsappcounter = 0
-        local _whatsappcounter2 = 0
-
-        if G.hand.highlighted[1] then
-            for i = 1, #G.hand.highlighted do
-                if G.hand.highlighted[i].seal == "yahimod_whatsapp_seal" then _whatsappcounter = _whatsappcounter + 1 end
-            end
-        end
-        
-        if G.play.cards[1] then
-            for i = 1, #G.play.cards do
-                if G.play.cards[i].seal == "yahimod_whatsapp_seal" then _whatsappcounter2 = _whatsappcounter2 + 1 end
-            end
-        end
-
-        if _whatsappcounter >= 5 or _whatsappcounter2 >= 5 then
-            G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            blocking = false,
-            blockable = false,
-            delay = 0.7,
-            func = function()
-                G.GAME.current_round.current_hand.handname = "Group Chat"
-                if G.GAME.current_round.current_hand.handname == "Group Chat" then return true end
-            end
-            }))
-        end
-
-        if context.main_scoring and context.cardarea == G.play then
-            if string.find(G.GAME.current_round.current_hand.handname,"Group Chat") then check_for_unlock({ type = "ach_groupchat" }) end
-            return {
-                G.E_MANAGER:add_event(Event({func = function()
-                play_sound('yahimod_whatsapp')
-                return true end })),
-                
-                message = "(1) New Message",
-                mult = self.config.mult,
-                chips = self.config.chips,
-                dollars = self.config.money,
-                x_mult = self.config.x_mult
-            }
-        end
-    end,
-}
-
-
-
-SMODS.Atlas {
-    key = "whatsapp_seal",
-    path = "whatsappseal.png",
-    px = 71,
-    py = 96
-}
-
-SMODS.Seal {
-    name = "whatsapp_seal",
-    key = "whatsapp_seal",
-    badge_colour = HEX("00FF00"),
-	config = { mult = 1, chips = 10, money = 1, x_mult = 1.1  },
-    loc_txt = {
-        -- Badge name (displayed on card description when seal is applied)
-        label = 'Whatsapp Seal',
-        -- Tooltip description
-        name = 'Whatsapp Seal',
-        text = {
-            '{C:mult}+#1#{} Mult',
-            '{C:chips}+#2#{} Chips',
-            '{C:money}+$#3#{}',
-            '{X:mult,C:white}X#4#{} Mult',
-        }
-    },
-
-
-    sound = { sound = 'yahimod_whatsapp', per = 1, vol = 0.4 },
-
-    loc_vars = function(self, info_queue)
-        return { vars = {self.config.mult, self.config.chips, self.config.money, self.config.x_mult, } }
-    end,
-    atlas = "whatsapp_seal",
-    pos = {x=0, y=0},
-
-    -- self - this seal prototype
-    -- card - card this seal is applied to
-    calculate = function(self, card, context)
-        -- main_scoring context is used whenever the card is scored
-        
-        local _whatsappcounter = 0
-        local _whatsappcounter2 = 0
-
-        if G.hand.highlighted[1] then
-            for i = 1, #G.hand.highlighted do
-                if G.hand.highlighted[i].seal == "yahimod_whatsapp_seal" then _whatsappcounter = _whatsappcounter + 1 end
-            end
-        end
-        
-        if G.play.cards[1] then
-            for i = 1, #G.play.cards do
-                if G.play.cards[i].seal == "yahimod_whatsapp_seal" then _whatsappcounter2 = _whatsappcounter2 + 1 end
-            end
-        end
-
-        if _whatsappcounter >= 5 or _whatsappcounter2 >= 5 then
-            G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            blocking = false,
-            blockable = false,
-            delay = 0.7,
-            func = function()
-                G.GAME.current_round.current_hand.handname = "Group Chat"
-                if G.GAME.current_round.current_hand.handname == "Group Chat" then return true end
-            end
-            }))
-        end
-
-        if context.main_scoring and context.cardarea == G.play then
-            if string.find(G.GAME.current_round.current_hand.handname,"Group Chat") then check_for_unlock({ type = "ach_groupchat" }) end
-            return {
-                G.E_MANAGER:add_event(Event({func = function()
-                play_sound('yahimod_whatsapp')
-                return true end })),
-                
-                message = "(1) New Message",
-                mult = self.config.mult,
-                chips = self.config.chips,
-                dollars = self.config.money,
-                x_mult = self.config.x_mult
-            }
-        end
-    end,
-}
-
-SMODS.Atlas {
-    key = "atlas_profesor_snape",
-    path = "snape.png",
-    px = 35,
-    py = 35,
-    frames = 1,
-    atlas_table = 'ANIMATION_ATLAS'
-}
-
-
-
-SMODS.Blind {
-    name = "profesor_snape",
-    key = "profesor_snape",
-    atlas = "atlas_profesor_snape",
-    pos = { y = 0 },
-    dollars = 6,
-    mult = 1.5,
-    loc_txt = {
-        name = 'PROFESOR SNAPE',
-        text = {
-             "Disculpe profesor Snape",
-             "Tengo una pequeña duda",
-        }
-    },
-    boss = {  min = 1 },
-    boss_colour = HEX('456185'),
-
-    set_blind = function(self)
-        -- Activa el bucle
-        Picaporte.video_loop_active = true
-        Picaporte.video_timer = 0
-    end,
-
-    defeat = function(self)
-        Picaporte.video_loop_active = false
-    end,
-
-    disable = function(self)
-        Picaporte.video_loop_active = false
-    end
-
-}
-

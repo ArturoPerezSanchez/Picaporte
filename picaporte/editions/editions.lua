@@ -1,4 +1,3 @@
-SMODS.Sound({key = "pee_sound", path = "pee_sound.ogg",})
 
 SMODS.Shader({
     key = 'pee',

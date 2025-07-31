@@ -9,6 +9,12 @@ for _, file in ipairs(utils_src) do
     assert(SMODS.load_file("utils/" .. file))()
 end
 
+-- Load Atlas and Sounds
+local atlas_and_sounds_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "atlas_and_sounds")
+for _, file in ipairs(atlas_and_sounds_src) do
+    assert(SMODS.load_file("atlas_and_sounds/" .. file))()
+end
+
 
 -- Load steam Data
 get_steam_persona_name()
