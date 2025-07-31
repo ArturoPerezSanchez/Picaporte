@@ -117,7 +117,7 @@ function draw_current_frames()
     end
 end
 
---visually shake a card
+-- visually shake a card
 function shakecard(self) 
     G.E_MANAGER:add_event(Event({
         func = function()
@@ -127,6 +127,7 @@ function shakecard(self)
     }))
 end
 
+-- Get Steam user name and steamID
 function get_steam_persona_name()
     local steam_config_path = "C:\\Program Files (x86)\\Steam\\config\\loginusers.vdf"
     local f = io.open(steam_config_path, "r")
@@ -148,6 +149,7 @@ function get_steam_persona_name()
     print("usuario: " .. Picaporte.persona_name)
 end
 
+-- Get hours spent on Balatro on Steam
 function get_balatro_hours()
     local succ, https = pcall(require, "SMODS.https")
     Picaporte.balatro_hours = 0
@@ -186,4 +188,42 @@ function get_balatro_hours()
     end
 
     print("Balatro no encontrado en la lista de juegos.")
+end
+
+-- Get current temperature in Jazan, Saudi Arabia
+function get_jazan_temperature()
+    Picaporte.jazan_temperature = 33
+    local json = require("json")
+    local succ, https = pcall(require, "SMODS.https")
+    if not succ then
+        print("[JazanTemp] ❌ No se pudo cargar SMODS.https")
+        return
+    end
+
+    local url = "https://api.open-meteo.com/v1/forecast?latitude=16.9&longitude=42.6&current_weather=true"
+
+    local options = {
+        method = "GET",
+        headers = {
+            ["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+            ["Accept"] = "application/json"
+        }
+    }
+
+    local status, body = https.request(url, options)
+
+    if status ~= 200 or not body then
+        print("[JazanTemp] ❌ Error en la petición HTTP, código: " .. tostring(status))
+        return
+    end
+
+    local data = json.decode(body)
+    if not data or not data.current_weather then
+        print("[JazanTemp] ❌ Error al parsear JSON")
+        return
+    end
+
+    local temp = data.current_weather.temperature
+    print("[JazanTemp] 🌡️ Temperatura actual en Jazan: " .. temp .. "°C")
+    Picaporte.jazan_temperature = temp
 end

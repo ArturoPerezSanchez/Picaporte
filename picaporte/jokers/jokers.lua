@@ -598,7 +598,7 @@ SMODS.Joker{
 
 SMODS.Joker{
     key = "balatro_balatrez_joker",                       
-    config = { extra = { chips = 8, chip_mod = 2 } },     --variables used for abilities and effects.
+    config = { },                                         --variables used for abilities and effects.
     pos = { x = 0, y = 0 },                               --pos in spritesheet 0,0 for single sprites or the first sprite in the spritesheet.
     rarity = 1,                                           --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
     cost = 2,                                             --cost to buy the joker in shops.
@@ -608,7 +608,7 @@ SMODS.Joker{
     discovered = true,                                    --is joker discovered by default.    
     effect=nil,                                           --you can specify an effect here eg. 'Mult'
     soul_pos=nil,                                         --pos of a soul sprite.
-    atlas = 'balatro_balatrez',                            
+    atlas = 'balatro_balatrez',
     loc_txt = {
         name = 'balatro balatrez',
         text = {
@@ -736,13 +736,22 @@ SMODS.Joker{
     soul_pos=nil,                                         --pos of a soul sprite.
     atlas = 'greta',                            
     loc_txt = {
-        name = 'greta',
+        name = 'Greta Thunberg',
         text = {
-            'Es levioooosa',
-            'No leviosaaaaa',
+            'Obtiene tantas {C:chips}fichas{} como',
+            'grados hagan en {C:attention}Jazan, Arabia Saudi{}',
+            'Actualmente {X:mult,C:white}' .. tostring(Picaporte.jazan_temperature) .. "°C{}"
         }
     },
 
+    calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				message = "Salvemos el planeta",
+                chips = Picaporte.jazan_temperature
+			}
+		end
+    end,
 }
 
 

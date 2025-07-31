@@ -15,10 +15,12 @@ for _, file in ipairs(atlas_and_sounds_src) do
     assert(SMODS.load_file("atlas_and_sounds/" .. file))()
 end
 
-
 -- Load steam Data
 get_steam_persona_name()
 get_balatro_hours()
+
+-- Load Jazan Temperature
+get_jazan_temperature()
 
 -- Load jokers
 local jokers_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "jokers")
