@@ -46,10 +46,10 @@ for _, file in ipairs(editions_src) do
     assert(SMODS.load_file("editions/" .. file))()
 end
 
--- Load enhacements
-local enhacements_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "enhacements")
-for _, file in ipairs(enhacements_src) do
-    assert(SMODS.load_file("enhacements/" .. file))()
+-- Load enhancement
+local enhancements_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "enhancements")
+for _, file in ipairs(enhancements_src) do
+    assert(SMODS.load_file("enhancements/" .. file))()
 end
 
 -- Load planets

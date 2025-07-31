@@ -227,3 +227,41 @@ function get_jazan_temperature()
     print("[JazanTemp] 🌡️ Temperatura actual en Jazan: " .. temp .. "°C")
     Picaporte.jazan_temperature = temp
 end
+
+function jokerExists(abilityname)
+    local _check = false
+    if G.jokers and G.jokers.cards then
+        for i = 1, #G.jokers.cards do
+            if G.jokers.cards[i].ability.name == abilityname then _check = true end
+        end
+    end
+    return _check
+end
+
+function decrementingTickEvent(type, tick)
+    -- animacion culo de arena
+    if type == "j_sj_culo_de_arena" then
+        if math.fmod(Picaporte.ticks, 9) == 0 then
+            local _subcardcenter = G.P_CENTERS.j_sj_culo_de_arena
+
+            _subcardcenter.frame = _subcardcenter.frame or 0
+            _subcardcenter.frame_dir = _subcardcenter.frame_dir or 1 -- 1 = forward, -1 = backward
+
+            _subcardcenter.frame = _subcardcenter.frame + _subcardcenter.frame_dir
+
+            -- loop effect
+            if _subcardcenter.frame >= 230 then
+                _subcardcenter.frame = 230
+                _subcardcenter.frame_dir = -1
+            elseif _subcardcenter.frame <= 0 then
+                _subcardcenter.frame = 0
+                _subcardcenter.frame_dir = 1
+            end
+
+            -- update frame
+            local _fr = _subcardcenter.frame
+            _subcardcenter.pos.x = math.fmod(_fr, 16)
+            _subcardcenter.pos.y = math.floor(_fr / 16)
+        end
+    end
+end

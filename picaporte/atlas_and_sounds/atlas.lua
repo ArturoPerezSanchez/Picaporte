@@ -135,9 +135,9 @@ SMODS.Atlas({
 
 SMODS.Atlas({
     key = "culo_de_arena",
-    path = "arena.png",
+    path = "culo_de_arena.png",
     px = 71,
-    py = 95
+    py = 96,
 })
 
 SMODS.Atlas({

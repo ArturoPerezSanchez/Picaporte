@@ -535,7 +535,7 @@ SMODS.Joker{
     key = "culo_de_arena",                               --name used by the joker.    
     config = { extra = { chips = 8, chip_mod = 2 } },    --variables used for abilities and effects.
     pos = { x = 0, y = 0 },                              --pos in spritesheet 0,0 for single sprites or the first sprite in the spritesheet.
-    rarity = 4,                                          --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
+    rarity = 1,                                          --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
     cost = 4,                                            --cost to buy the joker in shops.
     blueprint_compat=false,                               --does joker work with blueprint.
     eternal_compat=true,                                 --can joker be eternal.
@@ -545,6 +545,8 @@ SMODS.Joker{
     soul_pos=nil,                                        --pos of a soul sprite.
     atlas = 'culo_de_arena',                             --atlas name, single sprites are deprecated.
 
+    pixel_size = { w = 71 , h = 96 },
+    frame = 0,
     calculate = function(self,card,context)              --define calculate functions here
         if context.individual and context.cardarea == G.play then -- if we are in card scoring phase, and we are on individual cards
             if not context.blueprint then -- blueprint/brainstorm don't get to add chips to themselves

@@ -75,6 +75,25 @@ function Card:set_ability(center, initial, delay_sprites)
     end
 end
 
+local upd = Game.update
+function Game:update(dt)
+    upd(self, dt)
+
+    -- tick based events
+    if Picaporte.ticks == nil then Picaporte.ticks = 0 end
+    if Picaporte.dtcounter == nil then Picaporte.dtcounter = 0 end
+    Picaporte.dtcounter = Picaporte.dtcounter+dt
+    Picaporte.dt = dt
+
+    while Picaporte.dtcounter >= 0.010 do
+        Picaporte.ticks = Picaporte.ticks + 1
+        Picaporte.dtcounter = Picaporte.dtcounter - 0.010
+        if jokerExists("j_sj_culo_de_arena") then decrementingTickEvent("j_sj_culo_de_arena",0) end
+
+    end
+
+end
+
 
 -- Hook card.draw 
 -- local old_card_draw = Card.draw
