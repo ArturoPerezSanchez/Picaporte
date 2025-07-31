@@ -192,7 +192,7 @@ end
 
 -- Get current temperature in Jazan, Saudi Arabia
 function get_jazan_temperature()
-    Picaporte.jazan_temperature = 33
+    Picaporte.jazan_temperature = 33.1
     local json = require("json")
     local succ, https = pcall(require, "SMODS.https")
     if not succ then
@@ -200,7 +200,7 @@ function get_jazan_temperature()
         return
     end
 
-    local url = "https://api.open-meteo.com/v1/forecast?latitude=16.9&longitude=42.6&current_weather=true"
+    local url = "https://api.open-meteo.com/v1/forecast?latitude=16.8894&longitude=42.5706&current_weather=true"
 
     local options = {
         method = "GET",
